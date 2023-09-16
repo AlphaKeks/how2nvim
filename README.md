@@ -13,13 +13,6 @@ wouldn't want that. Whether you already decided that you want to use (neo)vim or
 give that document a read to truly know what you're getting yourself into, and whether you like the
 idea of it.
 
-I should also mention that this is heavily Linux biased, as I myself use Linux, but everything
-I talk about should work on MacOS and Windows as well. Windows might require extra steps for certain
-things to work properly, but I will do my best to mention those explicitly and link to helpful
-resources; just know that you might have to put in a little bit more effort if you are using
-Windows. WSL counts as "Linux" here for the most part, except for some quirks with things like the
-system clipboard, but we will get to those.
-
 ## Goals
 
 - Teach you about vim's philosophy and the mindset you need to become effective
@@ -34,6 +27,38 @@ solve every problem. Many people coming from other editors will try to keep thei
 and mindset going into neovim and will sooner or later hit a wall with that approach. This guide is
 not a "how to recreate VSCode in the terminal".
 
+## Some considerations
+
+### The OS you use
+
+I should also mention that this is heavily Linux biased, as I myself use Linux, but everything
+I talk about should work on MacOS and Windows as well. Windows might require extra steps for certain
+things to work properly, but I will do my best to mention those explicitly and link to helpful
+resources; just know that you might have to put in a little bit more effort if you are using
+Windows. WSL counts as "Linux" here for the most part, except for some quirks with things like the
+system clipboard, but we will get to those.
+
+### Where to find help / documentation
+
+The answer is `:help`.
+
+No, seriously, it's `:help`. It is by far the most thorough piece of documentation I have ever read.
+I will admit that it's a bit difficult to find what you're looking for, especially in the beginning,
+but there are ways of using it effectively. I recommend you start by reading `:help :help`.
+
+Communities of other people using vim can also be really helpful! I personally am really active on
+[ThePrimeagen's Discord server](https://discord.gg/theprimeagen).
+
+Whenever you have a question about (neo)vim itself, refer to `:help`. Whenever you have a question
+about a particular plugin, also refer to `:help`! Or their README, whatever is more detailed.
+
+### How you should use this repository
+
+Below you will find a table of contents, which I recommend you read in order start to finish.
+However it's also designed in a way that allows you to read them out of order, if you're interested
+in a specific topic.
+
 ## Table of contents
 
 - [Why (neo)vim? - The vim philosophy](./why-vim.md)
+- [Installing neovim](./installing-vim.md)

@@ -63,3 +63,4 @@ in a specific topic.
 - [Why (neo)vim? - The vim philosophy](./why-vim.md)
 - [Installing neovim](./installing-neovim.md)
 - [Getting to know the editor](./getting-to-know-vim.md)
+- [`makeprg` and the quickfix list - basic static analysis workflow](./makeprg.md)

@@ -61,4 +61,4 @@ in a specific topic.
 ## Table of contents
 
 - [Why (neo)vim? - The vim philosophy](./why-vim.md)
-- [Installing neovim](./installing-vim.md)
+- [Installing neovim](./installing-neovim.md)

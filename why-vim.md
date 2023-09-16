@@ -135,10 +135,12 @@ Earlier I said Lua was verbose; I said that in comparison to vimscript. vimscrip
 compact, so to give a simple example:
 
 ```vim
+" vimscript
 set number
 ```
 
 ```lua
+-- Lua
 vim.opt.number = true
 ```
 

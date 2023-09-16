@@ -152,6 +152,47 @@ a lot of really cool neovim APIs that are only exposed in Lua.
 
 To read more about neovim-specific Lua, open it up and run `:help Lua`.
 
+#### interop between Lua and vimscript
+
+In vimscript you can use the `lua` command followed by any Lua code you wish to execute. This
+means that you can run Lua on the fly with `:lua` or in your `.vim` files. To create larger code
+blocks you can use "heredocs" (`:help :lua-heredoc`) like this:
+
+```vim
+" vimscript
+
+lua << EOF
+
+print("any lua code inside of here")
+print("will")
+print("work!")
+
+EOF
+```
+
+To call vimscript from Lua, you can use `vim.cmd`:
+
+```lua
+-- Lua
+
+vim.cmd("echo 'hello, world'")
+```
+
+Once again, you can have an entire block if you want to run mulitple commands using Lua's
+multi-line strings:
+
+```lua
+-- Lua
+
+vim.cmd([[
+
+echo 'any vimscript code inside of here'
+echo 'will'
+echo 'work!'
+
+]])
+```
+
 ### Treesitter
 
 [Treesitter](https://tree-sitter.github.io/tree-sitter) is a parsing library / engine. It is used

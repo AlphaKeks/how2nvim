@@ -65,3 +65,4 @@ in a specific topic.
 - [Getting to know the editor](./getting-to-know-vim.md)
 - [`makeprg` and the quickfix list - basic static analysis workflow](./makeprg.md)
 - [Setting up LSP support](./setup-lsp.md)
+- [Installing Plugins](./installing-plugins.md)

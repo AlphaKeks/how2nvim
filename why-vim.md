@@ -48,6 +48,88 @@ you can run, so you can still get a similar experience using a GUI, but for reas
 hopefully become clearer later I don't think it completely replaces an actual terminal, where vim is
 just another program that you can run.
 
+## Modal editing
+
+vim is called a "modal editor". What this means is that it has multiple **modes** which you can
+switch between. This is pretty different from most other editors. By default you will be in
+**normal** mode. Normal mode, as the name suggests, is where you should spend most of your time. It
+is used for moving around, running commands, and more generally to _manipulate_ text. "Manipulating"
+text is different from _inserting_ text. That's what **insert** mode is for. In insert mode most
+keys will behave like you would expect them to and just insert text like in any other editor. But
+inserting text is not actually what you spend most of your time with. Usually you _read_ code, move
+around, and modify existing text. Normal mode is much better suited for this. There's also other
+modes like command mode, visual mode and replace mode. But to understand what these are for or why
+they're useful, we need to talk about vim's language first (and I don't mean vimscript!).
+
+Most people will find vim's keybindings "arcane" when first trying them, because most editors are
+not like vim. As I mentioned earlier, **normal** mode is the mode you will find yourself in most of
+the time. In this mode you can move around using what I will refer to as **motions**. You can
+manipulate text using **operators** and **textobjects**. Specifically, vim keybindings follow
+a consistent pattern, which in its simplest form is a **motion**.
+
+Motions are keys like `w`, `b`, `e`, `h`, `j`, `k`, `l`, and so on. They will move your cursor
+around when you press them. `w` for example will move your cursor to the next beginning of
+a **w**ord, whereas `e` will move your cursor to the next **e**nd of a word. This is useful in and
+of itself, but it can also be combined with an **operator**.
+
+Operators are keys like `d`, `c` or `y`. They will not do anything by themselves, but instead wait
+for more keys to be pressed. Pressing just `d` for example won't do anything. You need to provide at
+least 1 more key for it to have any effect. Generally, when combined with a motion, the operator
+will operate over the text covered by that motion. So `dw` will delete anything up to the beginning
+of the next word. `de` will delete everything from your cursor to the end of the word. The nice part
+is that this is the same for all operators and motions! `cw` will behave exactly like `dw`, except
+that the operation is different. `c` has the same effect as `d`, but it will also put you into
+insert mode after the operation is completed. `y` will perform a "yank", which is vim's term for
+"copying". So, `yw` will yank (copy) a word.
+
+Both motions and operators can be prefixed with a count to repeat them multiple times. For example,
+pressing `j` will move your cursor down by a single line. `5j` will move your cursor down by
+5 lines. `dw` will delete a word, `5dw` or `d5w` will delete 5 words. This again works for any
+operator or motion.
+
+In addition to motions, which work standalone, there are also **textobjects**. These are always used
+together with operators and do not work by themselves. One of vim's textobjects is the `word`.
+Which, like you might expect, is accessed via `w`. But in a different context than the motion `w`.
+While you should think of `dw` as "deleting the text that would be covered by moving one word", vim
+also has a separate concept of a "word" as a textobject. `diw` for example will delete the nearest
+"word". The `i` here means "inner", so `diw` means "delete inner word", where "word" is a recognized
+textobject. What exactly defines a "word" can be configured, but by default it is any alphanumeric
+character sequence. Similarly, `daw` will "delete around word", which for "word" means any
+surrounding whitespace. Another useful textobject is `p` - the paragraph. This is any contiguous
+text separated by empty lines. Once again, this all follows the same pattern. `dip` will delete the
+current paragrap, `dap` will delete the current paragraph + any surround whitespace. `di"` will
+delete all text between the nearest set of double quotes. `da"` will delete the double quotes
+themselves as well.
+
+Visual mode is similar to the kind of "text selection" you might be used to from GUI programs. You
+enter visual mode by pressing `v`, which will highlight individual characters. Press `V` and you
+will be seleting entire lines at a time, `<C-v>` (CTRL + v) will select column-wise. Visual mode is
+special in the way that you _can_ actually use textobjects standalone here. Pressing `iw` at any
+point in visual mode will select the current word. Same rules as described earlier will apply here,
+except that text will be selected. Then, once you have your selection, you can perform an operation
+by pressing an operator like `d` or `y`. This means that `dw` and `vwd` are equivalent. Generally it
+is recommended to avoid visual mode for most operations as it requires more keys to be pressed and
+the visual feedback is usually useless, especially after memorizing all the motions and textobjects.
+In the beginning it can definitely be helpful, but it will hurt you in the long run. Usually you
+want to use visual mode for regions that are too complicated for motions or text objects.
+
+Replace mode is not that common, but still worth mentioning. Pressing `r` in normal mode will let
+you press another character and then replace the character below the cursor with the character you
+supplied to `r`. Pressing `R` will put you into **replace** mode. Now any key you press will replace
+the current character with the one you press and then move your cursor to the right by one column.
+This can be useful when you have a lot of padding whitespace within a string and want to just type
+text into it without having to manually adjust the padding again afterwards.
+
+Learning the motions and operators will take a bit of time, and switching between modes also takes
+some getting used to. But once you learn these basics you can compose them according to the system
+they follow, and it will become second nature. Once you master them, there is no going back.
+
+> Another popular modal editor is [Helix](https://helix-editor.com), which is very much inspired by
+> [Kakoune](https://kakoune.org). These editors are kind of "backwards" compared to vim, as they
+> follow a selection-first principle and there is no distinction between normal and visual mode.
+> I personally find this very unintuitive and counter-productive. Read [this](https://github.com/noctuid/dotfiles/blob/e6d93d17d3723dad06c8277b7565035df836d938/emacs/editing.org#why-not-kakoune)
+> for a more detailed explanation, it pretty much perfectly outlines my thoughts.
+
 ## Why **neo**vim?
 
 [neovim](https://github.com/neovim/neovim) started as a fork of vim and has evolved a lot since it

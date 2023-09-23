@@ -135,7 +135,7 @@ they follow, and it will become second nature. Once you master them, there is no
 [neovim](https://github.com/neovim/neovim) started as a fork of vim and has evolved a lot since it
 started out. A lot of the underlying implementation is different nowadays, and neovim has brought
 a lot of new ideas into the mix that vim did not implement. vim however also added lots of new
-features over the years which neovim did not adopt, so the compatibilty between the two is not as
+features over the years which neovim did not adopt, so the compatibility between the two is not as
 close as it once was. The core concepts and how the editor works are the same though, so why use
 neovim over vim?
 
@@ -260,7 +260,7 @@ To call vimscript from Lua, you can use `vim.cmd`:
 vim.cmd("echo 'hello, world'")
 ```
 
-Once again, you can have an entire block if you want to run mulitple commands using Lua's
+Once again, you can have an entire block if you want to run multiple commands using Lua's
 multi-line strings:
 
 ```lua

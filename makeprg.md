@@ -236,7 +236,7 @@ Here we define an autocommand to run _before_ the buffer gets saved. We tell it 
 `%!prettier %`, which might be a bit confusing because of the double `%`. In general, `%` used in
 ranges means "the entire file" while it means "the full path to the current file" in any other case.
 So what we're saying here is: "run a shell command called `prettier` and pass the current file path
-to it, then replace the current buffer with its ouput". Unfortunately this has the side effect that
+to it, then replace the current buffer with its output". Unfortunately this has the side effect that
 our cursor will be put at the beginning of the buffer. This is quite distracting but can be solved
 easily by saving the cursor position before running prettier and restoring it again afterwards:
 

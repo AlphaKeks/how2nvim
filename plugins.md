@@ -125,9 +125,9 @@ require("lazy").setup({
 ```
 
 The first argument to `setup` can be either a string or a table. In this case we pass it a table
-which acts as an arry of "plugin specs". A "plugin spec" is a table that describes a plugin you want
-to install. The first element in a spec table is the URL of the plugin and any following arguments
-are key-value pairs representing options. You can find details about the plugin spec
+which acts as an array of "plugin specs". A "plugin spec" is a table that describes a plugin you
+want to install. The first element in a spec table is the URL of the plugin and any following
+arguments are key-value pairs representing options. You can find details about the plugin spec
 [here](https://github.com/folke/lazy.nvim#-plugin-spec).
 
 Actually, this array table will accept either plugin specs or strings (or both!) and will treat

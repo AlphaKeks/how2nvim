@@ -250,8 +250,8 @@ I think you should include in your config.
   will always be a single global statusline
 - `wrap` will make text softwrap if it's longer than your screen is able to display
 - `colorcolumn` will color a specific column in a different color. This is a nice guide for limiting
-  the maximum lenght of lines, although it is only visual. I like to set this to whatever maximum
-  line lenght is enforced by my formatter + 1.
+  the maximum length of lines, although it is only visual. I like to set this to whatever maximum
+  line length is enforced by my formatter + 1.
 
 ### Search
 

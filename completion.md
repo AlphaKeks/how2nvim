@@ -73,7 +73,7 @@ cmp.setup({
     -- Select the previous item
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        cmp.select_previous_item()
+        cmp.select_prev_item()
       else
         fallback()
       end
